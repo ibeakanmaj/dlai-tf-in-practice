@@ -1,0 +1,14 @@
+Useful notebooks:
+
+
+
+
+
+
+TensorFlow in Practice - Course 2 - Week 4 - Exercise 8 - Sign Language Multi-class Classification.ipynb
+
+	- Multi-class classification
+	- Load data from csv file to data array - image label and pixel RGB values
+	- Add dim to data (x,x,x,1) for single channel
+	- flow() method instead of flow_from_directory() to take in image data arrays
+	- sparse_categorical_crossentropy
