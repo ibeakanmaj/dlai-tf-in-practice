@@ -2,13 +2,18 @@ Useful notebooks:
 
 
 
+TensorFlow_in_Practice_Course_2_Week_3_Exercise_7_Horse_vs_Human_Transfer_Learning.ipynb:
+
+	- Transfer Learning
+	- Callbacks
+	- Dropout
+	- Augmentation
 
 
+TensorFlow_in_Practice_Course_2_Week_4_Exercise_8_Sign_Language_Multi_class_Classification.ipynb:
 
-TensorFlow in Practice - Course 2 - Week 4 - Exercise 8 - Sign Language Multi-class Classification.ipynb
-
-	- Multi-class classification
-	- Load data from csv file to data array - image label and pixel RGB values
-	- Add dim to data (x,x,x,1) for single channel
-	- flow() method instead of flow_from_directory() to take in image data arrays
+	- Load data from csv file - image label and pixel RGB values to image data matrices 
+	- Add dim to data matrices (x,x,x,1) for single grayscale channel
+	- flow() method instead of flow_from_directory() to take in image data arrays and labels
 	- sparse_categorical_crossentropy
+	- multi-class classification with softmax output
