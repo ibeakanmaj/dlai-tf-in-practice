@@ -1,0 +1,12 @@
+Useful notebooks:
+
+Week 2 - BBC News Exercise (my solution) notebook:
+
+	- Multi-class catgorization - sport, business, politics etc.
+	- loading csv into pandas df
+	- sentence and label tokenization
+	- embedding layers
+	- vector and metadata projection using TensorFlow Projector
+
+
+Week 3 - Versions of birdirectional LSTMs, GRUs and even Conv1D models (avoid using subword text datasets). See later notebooks
