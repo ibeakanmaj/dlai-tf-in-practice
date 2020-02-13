@@ -10,3 +10,8 @@ Week 2 - BBC News Exercise (my solution) notebook:
 
 
 Week 3 - Versions of birdirectional LSTMs, GRUs and even Conv1D models (avoid using subword text datasets). See later notebooks
+
+	- Sentiment140 and GloVe Exercise:
+		- has download of GloVe embedding vectors
+		- downloads sentiment analysis data (big dataset) and split into train/test
+		- Bidirectional LSTM
