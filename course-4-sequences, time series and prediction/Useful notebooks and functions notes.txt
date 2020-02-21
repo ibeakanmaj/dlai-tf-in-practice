@@ -1,0 +1,12 @@
+This is a list of useful functions contained in the notebooks:
+
+deeplearning.ai - TensorFlow in Practice - Course 4 S+P - Week 2 -  Lesson 2 - Single Layer NN with Time Series.ipynb:
+
+	- Windowed time series function
+	- Function to view nn layer weights (create object from layer then call object_name.get_weights()
+
+
+deeplearning.ai - TensorFlow in Practice - Course 4 S+P - Week 2 -  Lesson 3 - Deep NN with Time Series.ipynb:
+
+	- Learning Rate Scheduler with lambda function to reduce LR
+	- Plot of loss per epoch vs learning rate
