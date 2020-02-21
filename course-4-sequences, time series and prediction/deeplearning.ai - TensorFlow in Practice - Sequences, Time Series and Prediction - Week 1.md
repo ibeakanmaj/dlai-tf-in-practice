@@ -1,4 +1,4 @@
-deeplearning.ai - TensorFlow in Practice - Sequences, Time Series and Prediction
+# deeplearning.ai - TensorFlow in Practice - Sequences, Time Series and Prediction
 
 ## Week 1 - Sequences and Prediction
 

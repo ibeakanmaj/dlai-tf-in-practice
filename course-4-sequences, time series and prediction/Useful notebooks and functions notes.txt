@@ -10,3 +10,8 @@ deeplearning.ai - TensorFlow in Practice - Course 4 S+P - Week 2 -  Lesson 3 - D
 
 	- Learning Rate Scheduler with lambda function to reduce LR
 	- Plot of loss per epoch vs learning rate
+
+
+deeplearning.ai - TensorFlow in Practice - Course 4 S+P - Week 2 - Exercise.ipynb:
+
+	- uses the same as above notebook but also with lookahead wrap (TensorFlow addon) around optimizer
