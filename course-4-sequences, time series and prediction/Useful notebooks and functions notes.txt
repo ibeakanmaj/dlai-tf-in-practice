@@ -15,3 +15,13 @@ deeplearning.ai - TensorFlow in Practice - Course 4 S+P - Week 2 -  Lesson 3 - D
 deeplearning.ai - TensorFlow in Practice - Course 4 S+P - Week 2 - Exercise.ipynb:
 
 	- uses the same as above notebook but also with lookahead wrap (TensorFlow addon) around optimizer
+	- Learning rate finder method
+	- Lambda layers - v useful
+
+
+deeplearning.ai - TensorFlow in Practice - S+P - Week 3 - Lesson 4 - LSTM.ipynb:
+
+	- 2 layer and 3 layer bidirectional LSTMS
+	- Lambda layers - v useful
+	- Adam with Lookahead addon
+	- Learning rate finder method

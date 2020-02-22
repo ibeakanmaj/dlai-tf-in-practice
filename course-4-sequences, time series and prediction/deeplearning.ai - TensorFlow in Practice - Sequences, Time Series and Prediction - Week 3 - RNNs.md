@@ -8,7 +8,7 @@
 
 * With an RNN we can feed in batches of sequences and it will output a batch of forecasts.
 
-* The Input X will be the windowed data with shape = [batch_size, # time-steps, # dimensionality of input at each time step]
+* The Input X will be the windowed data with shape = ***[batch_size, # time-steps, # dimensionality of input/series at each time step]***
 
   * dimensionality of input at each time step:
 
@@ -83,7 +83,9 @@ in the LSTM, GRU or other RNN layer parameters. This will need to be done when s
 
 
 
-### Input sizes and outputting a sequence using tf.keras
+### SimpleRNN 
+
+#### Input sizes and outputting a sequence using tf.keras and layers
 
 If we consider an RNN with 2 recurrent layers -  a **Sequence-to-Vector RNN**: 
 
@@ -103,6 +105,75 @@ If we consider an RNN with 2 recurrent layers -  a **Sequence-to-Vector RNN**:
   ![image-20200221144059403](C:\Users\mikef\AppData\Roaming\Typora\typora-user-images\image-20200221144059403.png)
 
 
+
+
+
+#### Lambda layers
+
+A Lambda layer is one that allows us to arbitrarily expand the functionality of Keras in TensorFlow, as lambda functions do in Python.
+
+We define these in the model definition:
+
+![image-20200222113536229](C:\Users\mikef\AppData\Roaming\Typora\typora-user-images\image-20200222113536229.png)
+
+
+
+* The first Lambda layer will be used to help us with our dimensionality, as our windowed dataset helper function returns two dimensional batches of windows on the data: ***[batch_size, timesteps]***, but an RNN expects a 3 dimensional input: ***[batch_size, # time-steps, # dimensionality of input/series at each time step]***.
+* With the Lambda layer we can therefore fix this, by expanding the array by 1 dimension with `tf.expand_dims(x, axis=1)` and by setting `input_shape=[None]` it can take sequences of any dimension.
+* The second Lambda layer, scales the output by 100 to help training as the default activation function is tanh, which has values between -1 and 1. Since the timeseries values are in the order of 10's, by scaling up the outputs to the same scale can help us with training.
+
+
+
+#### Learning Rate Finder
+
+In the `deeplearning.ai - TensorFlow in Practice S+P - Week 3 - Lesson 2 - RNN for Time Series.ipynb` notebook, we have setup a callback for training over 100 epochs with an increased learning rate after each epoch. From this we can print the results of loss vs learning rate, so that we can choose the best learning rate in the actual training stage after this.
+
+
+
+#### Adjusting the learning rate dynamically
+
+In addition to the learning rate finder detailed above, we have setup a callback to reduce the learning rate after every epoch, such that training can converge.
+
+
+
+#### Huber Loss Function
+
+In the `deeplearning.ai - TensorFlow in Practice S+P - Week 3 - Lesson 2 - RNN for Time Series.ipynb` we are using the Huber loss function, which is more insensitive to outliers than other loss functions and as time series data can be quite noisy it's worth experimenting with it.
+
+More info on the Huber loss can be found here:
+
+https://en.wikipedia.org/wiki/Huber_loss
+
+
+
+### LSTM
+
+In the previous sections we used SimpleRNN layers in tf.keras and the results were good but could be improved. This could perhaps be done with LSTMs as they have the long-short-term-memory cells, which could improve the predictions of trends/seasonality, as was the problem with the last predictions (i.e. plateauing where there is a seasonal peak.).
+
+The hyperparameters, learning rate finding and optimization approaches from the previous sections can still be used.
+
+Within **SimpleRNN** layers, the memory of the previous sections is carried forward, however, the impact of each layer *diminishes* with sequence length. **LSTM** on the other hand, in addition to the cell output H, add a cell state that can be *maintained* throughout training from timestep to timestep, until it is triggered to change. This means the earlier data can have a greater impact on the overall projection. The cell state can also be *bidirectional* - this may or may not help with numerical data, but is very useful for text data.
+
+![image-20200222121938735](C:\Users\mikef\AppData\Roaming\Typora\typora-user-images\image-20200222121938735.png)
+
+
+
+#### Coding LSTMs
+
+Note: this is contained in the notebook `deeplearning.ai - TensorFlow in Practice - S+P - Week 3 - Lesson 4 - LSTM.ipynb`
+
+To use LSTMs, we can define the following layers in the model:
+
+```python
+tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(32, return_sequences=True)), # 32 cell, bidirectional LSTM layer, returning single output
+tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(32)), # 32 cell LSTM layer
+```
+
+### Clearing tf settings for fast experimentation
+
+We can use the following code to clear any variables and model settings, to allow quick iteration and experimentation:
+
+`tf.keras.backend.clear_session()`
 
 
 
