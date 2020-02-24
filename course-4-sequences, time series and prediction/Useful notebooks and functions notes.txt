@@ -25,3 +25,26 @@ deeplearning.ai - TensorFlow in Practice - S+P - Week 3 - Lesson 4 - LSTM.ipynb:
 	- Lambda layers - v useful
 	- Adam with Lookahead addon
 	- Learning rate finder method
+
+
+deeplearning.ai - TensorFlow in Practice - Course 4 S+P - Week 4 - Lesson 1.ipynb:
+
+	- Conv1D and LSTMs combined
+	- Learning Rate Finder
+
+deeplearning.ai - TensorFlow in Practice - Course 4 S+P - Week 4 - Lesson 5 - Sunspot times series prediction.ipynb:
+
+and
+
+deeplearning.ai - TensorFlow in Practice - Course 4 S+P - Week 4 - Exercise Melbourne Temperature Prediction.ipynb:
+
+
+	- download dataset
+	- read csv and create list from data -> convert to numpy arrays (more efficient than straight to numpy)
+	- dataset windowing and prediction functions
+	- Learning Rate Finder
+	- Cyclical learning rates (mine)
+	- Conv1d and LSTM
+	- Lambda layers
+	- Huber Loss
+	- Tensorboard
